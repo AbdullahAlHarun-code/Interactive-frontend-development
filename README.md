@@ -40,4 +40,4 @@ Before any player wins .
 ### If the game tie popup will be come out
 ![alt text](https://i.ibb.co/RYFd35h/tie.png "Game tie")
 
-##Its fun to play it !
+## Its fun to play it !
