@@ -3,15 +3,15 @@
  */
 class TicTakToe {
     constructor() {
-        this.single_player = 1;
-        this.double_player = 0;
+        this.singlePlayer = 1;
+        this.doublePlayer = 0;
         this.mute = 0;
         this.reset = 0;
-        this.active_button_bg_color = '#DCFBDC';
-        this.deactive_button_bg_color = '#EB532D';
+        this.activeButtonBgColor = '#DCFBDC';
+        this.deactiveButtonBgColor = '#EB532D';
 
 
-        this.player1_text = 'X';
+        this.player1Text = 'X';
         this.player1_win = 0;
 
         this.player2_text = 'O';
@@ -37,42 +37,56 @@ class TicTakToe {
 
 }
 
+const song = document.getElementById("myAudio");
+
 /*
  *** This is main variable to play the game.
  */
 
-var ticTakToe = new TicTakToe();
+let ticTakToe = new TicTakToe();
+
+/*
+ *** Browser Autoplay Policy Changes fixes.
+ */
+autoPlayAudio();
+function autoPlayAudio(){
+    if(sessionStorage.getItem("autoPlay")!=1){
+        sessionStorage.setItem("autoPlay", 1);
+        location.reload();
+    }else{
+        sessionStorage.clear();
+    }
+    
+}
+
+function resetPlayerAttribute(player,computerLabel,playerLabel){
+    ticTakToe = resetNewPlayerMode(ticTakToe);
+    
+    ticTakToe = initialResult(ticTakToe);
+   
+    ticTakToe.singlePlayer = player == 1 ? 1 : 0;
+    ticTakToe.doublePlayer = player == 1 ? 0 : 1;
+    ticTakToe = initialPlayer(ticTakToe);
+    //changing button background and text color, changing person text and player2 text
+    changePersonPlayer2Text(computerLabel, playerLabel);
+    changeButtonColor(ticTakToe);
+}
+
+
 /*
  *** This function set for single player mode. One player can play with computer.
  */
 function selectSinglePlayer() {
-    ticTakToe = resetNewPlayerMode(ticTakToe);
-    if (ticTakToe.single_player == 0) {
-        ticTakToe = initialResult(ticTakToe);
-    }
-    ticTakToe.single_player = 1;
-    ticTakToe.double_player = 0;
-    ticTakToe = initialPlayer(ticTakToe);
-    //changing button background and text color, changing person text and player2 text
-    changePersonPlayer2Text('Computer(O)', '1P');
-    changeButtonColor(ticTakToe);
+    
+    resetPlayerAttribute(1,'Computer(O)', '1P');
 
 }
 /*
  *** This function set for two player mode. One player can play other player.
  */
-function selectTwoPlayer() {
-    ticTakToe = resetNewPlayerMode(ticTakToe);
-    if (ticTakToe.double_player == 0) {
-        ticTakToe = initialResult(ticTakToe);
-    }
-    ticTakToe.double_player = 1;
-    ticTakToe.single_player = 0;
-    ticTakToe = initialPlayer(ticTakToe);
-    ticTakToe.person_text = '2p';
-    //changing button background and text color, changing person text and player2 text
-    changeButtonColor(ticTakToe);
-    changePersonPlayer2Text('Player2(O)', '2P');
+function selectTwoPlayer() {  
+
+    resetPlayerAttribute(0,'Player2(O)', '2P');
 }
 /*
  *** This function set complete reset the game. All data will wiped out in browser.
@@ -108,7 +122,7 @@ function initialAllSlot(tic_tak_toe) {
 function resetForNewMatch(tic_tak_toe) {
     tic_tak_toe = initialAllSlot(tic_tak_toe);
     tic_tak_toe = initialPlayer(tic_tak_toe);
-    if (tic_tak_toe.single_player == 1 && tic_tak_toe.total_match % 2 == 0) {
+    if (tic_tak_toe.singlePlayer == 1 && tic_tak_toe.total_match % 2 == 0) {
         tic_tak_toe = getGameResult(tic_tak_toe);
     }
 
@@ -118,7 +132,7 @@ function resetForNewMatch(tic_tak_toe) {
 /*
  *** This function for sound off or pause the background audio music.
  */
-function mute() {
+function muteSound() {
     togglePlayPause();
     if (ticTakToe.mute == 0) {
         ticTakToe.mute = 1
@@ -135,6 +149,7 @@ function closePopup() {
 
     ticTakToe = resetForNewMatch(ticTakToe);
     changeButtonColor(ticTakToe);
+    // 
     $('body').removeAttr('onclick');
     ticTakToe = updateResultText(ticTakToe);
     $('.slot').removeAttr('disabled');
@@ -145,18 +160,10 @@ function closePopup() {
  *** This function mainly initial player mode mean every game should be two way flow. If one player play first, second player should play first for next game.
  */
 function initialPlayer(btn) {
-    if (btn.single_player == 1) {
-        if (btn.total_match % 2 == 0) {
-            btn.start_player = 3;
-        } else {
-            btn.start_player = 1;
-        }
-    } else if (btn.double_player == 1) {
-        if (btn.total_match % 2 == 0) {
-            btn.start_player = 2;
-        } else {
-            btn.start_player = 1;
-        }
+    if (btn.singlePlayer == 1) {
+        btn.start_player = btn.total_match % 2 == 0 ? 3 : 1;
+    } else if (btn.doublePlayer == 1) {
+        btn.start_player = btn.total_match % 2 == 0 ? 2 : 1;        
     }
 
     return btn;
@@ -166,7 +173,7 @@ function initialPlayer(btn) {
  *** This function update game result show in result section
  */
 function updateResultText(tic_tak_toe) {
-    //console.log('yes');	
+    //console.log('yes');   
     $('.player1_win').text(tic_tak_toe.player1_win);
     $('.player2_win').text(tic_tak_toe.player2_win);
     $('.match_tie').text(tic_tak_toe.match_tie);
@@ -188,11 +195,11 @@ function updateWinGame(tic_tak_toe, player) {
         tic_tak_toe.player1_win = tic_tak_toe.player1_win + 1;
         successGamePopup(1);
     }
-    if (player == 2 && tic_tak_toe.single_player == 1) {
+    if (player == 2 && tic_tak_toe.singlePlayer == 1) {
         tic_tak_toe.player2_win = tic_tak_toe.player2_win + 1;
         loseGamePopup();
     }
-    if (player == 2 && tic_tak_toe.double_player == 1) {
+    if (player == 2 && tic_tak_toe.doublePlayer == 1) {
         tic_tak_toe.player2_win = tic_tak_toe.player2_win + 1;
         successGamePopup(2);
     }
@@ -220,7 +227,7 @@ function updateTieGame(tic_tak_toe, player) {
 function selectSlot(btn) {
     if (ticTakToe.count_slot <= 10) {
 
-        if (ticTakToe.single_player == 1) {
+        if (ticTakToe.singlePlayer == 1) {
 
             if ($('.slot_' + btn).text() == '') {
                 ticTakToe = setSlotText(btn, ticTakToe);
@@ -238,7 +245,8 @@ function selectSlot(btn) {
             }
 
 
-        } else if (ticTakToe.double_player == 1) {
+        } else if (ticTakToe.doublePlayer == 1) {
+
             if ($('.slot_' + btn).text() == '') {
                 ticTakToe = setSlotText(btn, ticTakToe);
                 result = calculateGamePattern(ticTakToe);
@@ -369,27 +377,27 @@ function popupAction(addClass, text) {
         $(".result_message").addClass(addClass);
         $(".result_message").text(text);
         $('body').attr('onclick', 'closePopup()');
-    }, 1500);
+    }, 500);
 }
 
 /*
  *** This function for player 1 or player 2 win the game popup message. 
  */
 function successGamePopup(player) {
-    popupAction('text-success', '! Player' + player + ' Win');
+    popupAction('text-success', 'Player ' + player + ' Win !!!');
 }
 /*
  *** This function when play mode single player and computer will win the mena you lose the game popup message.
  */
 function loseGamePopup() {
-    popupAction('text-danger', '! You Lose the game');
+    popupAction('text-danger', 'You Lose the game !!!');
 
 }
 /*
  *** This function for any game when tie the game popup message.
  */
 function tieGamePopup() {
-    popupAction('text-warning', '! Match Tie');
+    popupAction('text-warning', 'Match Tie !!!');
 }
 /*
  *** This function initial result mean all result value will be initial.
@@ -429,7 +437,7 @@ function getGameResult(btn) {
  *** This function basically when player mode single and checking random number and gamepattern and return possible next number
  */
 function getComputerNumber(btn) {
-    if (btn.single_player == 1 && btn.count_slot < 10) {
+    if (btn.singlePlayer == 1 && btn.count_slot < 10) {
 
         let all_slot = btn.player1.concat(btn.player2);
         result = calculateGamePattern(btn);
@@ -474,33 +482,21 @@ function setSlotText(id, tic_tak_toe) {
     if ($('.slot_' + id).text() == '') {
         if (tic_tak_toe.start_player == 1) {
             if (tic_tak_toe.count_slot % 2 == 0) {
-                $('.slot_' + id).text(tic_tak_toe.player2_text);
-                tic_tak_toe.player2[tic_tak_toe.player2.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer2SlotText(id,tic_tak_toe);
             } else {
-                $('.slot_' + id).text(tic_tak_toe.player1_text);
-                tic_tak_toe.player1[tic_tak_toe.player1.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer1SlotText(id,tic_tak_toe);
             }
         } else if (tic_tak_toe.start_player == 2) {
             if (tic_tak_toe.count_slot % 2 == 0) {
-                $('.slot_' + id).text(tic_tak_toe.player1_text);
-                tic_tak_toe.player1[tic_tak_toe.player1.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer1SlotText(id,tic_tak_toe);
             } else {
-                $('.slot_' + id).text(tic_tak_toe.player2_text);
-                tic_tak_toe.player2[tic_tak_toe.player2.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer2SlotText(id,tic_tak_toe);
             }
         } else if (tic_tak_toe.start_player == 3) {
             if (tic_tak_toe.count_slot % 2 == 0) {
-                $('.slot_' + id).text(tic_tak_toe.player1_text);
-                tic_tak_toe.player1[tic_tak_toe.player1.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer1SlotText(id,tic_tak_toe);
             } else {
-                $('.slot_' + id).text(tic_tak_toe.player2_text);
-                tic_tak_toe.player2[tic_tak_toe.player2.length] = id;
-                ticTakToe.count_slot = ticTakToe.count_slot + 1;
+                tic_tak_toe=changePlayer2SlotText(id,tic_tak_toe);
             }
         }
     }
@@ -508,22 +504,44 @@ function setSlotText(id, tic_tak_toe) {
 
     return tic_tak_toe;
 }
+
+/*
+ *** This function basically changing player1 text
+ */
+
+function changePlayer1SlotText(id,tic_tak_toe){
+    $('.slot_' + id).text(tic_tak_toe.player1Text);
+    tic_tak_toe.player1[tic_tak_toe.player1.length] = id;
+    ticTakToe.count_slot = ticTakToe.count_slot + 1;
+    return tic_tak_toe;
+}
+
+/*
+ *** This function basically changing player2 text
+ */
+
+function changePlayer2SlotText(id,tic_tak_toe){
+    $('.slot_' + id).text(tic_tak_toe.player2_text);
+    tic_tak_toe.player2[tic_tak_toe.player2.length] = id;
+    ticTakToe.count_slot = ticTakToe.count_slot + 1;
+    return tic_tak_toe;
+}
 /*
  *** This function basically when press the top button and active player mode change button background and color.
  */
 function changeButtonColor(tic_tak_toe) { //deactive:EB532D,active: DCFBDC
-    if (tic_tak_toe.single_player == 1) {
+    if (tic_tak_toe.singlePlayer == 1) {
         changeColor('.single_player', '.double_player', tic_tak_toe);
     }
-    if (tic_tak_toe.double_player == 1) {
+    if (tic_tak_toe.doublePlayer == 1) {
         changeColor('.double_player', '.single_player', tic_tak_toe);
     }
 
     if (tic_tak_toe.mute == 1) {
-        $('.mute').css('background-color', tic_tak_toe.active_button_bg_color);
+        $('.mute').css('background-color', tic_tak_toe.activeButtonBgColor);
         $('.mute').css('color', '#000');
     } else {
-        $('.mute').css('background-color', tic_tak_toe.deactive_button_bg_color);
+        $('.mute').css('background-color', tic_tak_toe.deactiveButtonBgColor);
         $('.mute').css('color', '#fff');
     }
     if (tic_tak_toe.reset == 1) {
@@ -533,9 +551,9 @@ function changeButtonColor(tic_tak_toe) { //deactive:EB532D,active: DCFBDC
 }
 
 function changeColor(activeClass, deactiveClass, tic_tak_toe) {
-    $(activeClass).css('background-color', tic_tak_toe.active_button_bg_color);
+    $(activeClass).css('background-color', tic_tak_toe.activeButtonBgColor);
     $(activeClass).css('color', '#000');
-    $(deactiveClass).css('background-color', tic_tak_toe.deactive_button_bg_color);
+    $(deactiveClass).css('background-color', tic_tak_toe.deactiveButtonBgColor);
     $(deactiveClass).css('color', '#fff');
 }
 /*
@@ -548,22 +566,12 @@ function changePersonPlayer2Text(player2, person) {
 //--------------------------------------------------------------------------------------------------
 
 /*
- *** This function basically testing for any value.
- */
-function testing(btn) {
-
-    console.log(btn);
-}
-
-function resetTicTakToe() {
-    ticTakToe = new TicTakToe();
-    return ticTakToe;
-}
-/*
  *** This function for audio on and off .
  */
-var song = document.getElementById("myAudio");
+
 
 function togglePlayPause() {
     song.paused ? song.play() : song.pause();
 }
+
+

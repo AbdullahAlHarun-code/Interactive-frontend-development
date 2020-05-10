@@ -31,14 +31,6 @@ Before any player wins.
 * If any player fulfils the winning condition then it ties the game.
 * Win and Lose is indicated by numbers at the bottom area.
 
-### If player1 win popup will be come out
-![alt text](https://i.ibb.co/gtDKz2F/player1-win.png "Player1 win")
-### If player2 win popup will be come out
-![alt text](https://i.ibb.co/fNJzmB4/player2-win.png "Player2 win")
-### If Computer win popup will be come out
-![alt text](https://i.ibb.co/SvXg8Hj/computer-win.png "Computer win")
-### If the game tie popup will be come out
-![alt text](https://i.ibb.co/RYFd35h/tie.png "Game tie")
 
 ## Mockups
 
