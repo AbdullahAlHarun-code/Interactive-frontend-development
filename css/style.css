@@ -1,0 +1,166 @@
+body {
+  background: #14BDAC;
+  //background: #536B8D;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.clearfix {
+  clear: both;
+  display: block;
+}
+
+.slot {
+  height: 115px;
+  margin: 0px;
+  padding: 0px;
+  width: 115px;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid;
+  background: #8BC34A;
+  color: #fff;
+  font-weight: bold;
+  font-size: 70px;
+  float: left;
+}
+
+.slot:focus,
+.slot:active,
+.slot:visited,
+.slot:hover {
+  //border:3px solid;
+  box-shadow: 1px;
+  outline: none;
+  border-color: #EB532D;
+}
+
+.top-button {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 17px 10px;
+  background: #EB532D;
+  //background: #DCFBDC;
+  text-align: center;
+  font-size: 18px;
+}
+
+.top-button-active {
+  background: #DCFBDC;
+  color: #000;
+}
+
+.top-button:hover {
+  cursor: pointer;
+  background: #DCFBDC;
+  color: #000;
+}
+
+.bottom-button {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 17px 10px;
+  background: #EB532D;
+  text-align: center;
+  font-size: 18px;
+}
+
+.bottom-button-bottom {
+  color: #000;
+  border: 1px solid #fff;
+  padding: 17px 10px;
+  background: #fff;
+  text-align: center;
+  font-size: 18px;
+}
+
+.slot-area {
+  margin: 50px auto;
+  width: 350px;
+}
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #F19636;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+h4 {
+  text-align: center;
+  color: #fff;
+}
+
+.visible-xs .bottom-button-bottom {
+  border-color: #dedede;
+}
+
+.info-button {
+  width: 45px;
+  border: 1px solid #fff;
+  background: #fff;
+  float: right;
+  border-radius: 50%;
+}
+
+.info-button:hover {
+  cursor: pointer;
+}
+
+.info-text {
+  text-align: left;
+  font-size: 26px;
+}
+
+.modal-dialog {
+  width: 70%;
+}
+
+.modal-dialog .btn {
+  font-size: 26px;
+}
+
+.modal-dialog h1 {
+  font-weight: bold;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  body {
+    padding: 15px;
+  }
+  .modal-dialog {
+    width: 100%;
+  }
+  .modal-dialog h1 {
+    font-size: 28px;
+  }
+}
