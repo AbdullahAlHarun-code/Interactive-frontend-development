@@ -40,4 +40,31 @@ Before any player wins.
 ### If the game tie popup will be come out
 ![alt text](https://i.ibb.co/RYFd35h/tie.png "Game tie")
 
+## Mockups
+
+I have used Figma Mockups to visualize images I can work from.
+* [Desktop Home](https://i.ibb.co/KFzfYgx/figma.png)  - [Tablet Home](https://i.ibb.co/KFzfYgx/figma.png) - [Mobile Home](https://i.ibb.co/KFzfYgx/figma.png)
+
+## Mockups
+* The responsive is run and tested at:
+..* [http://ami.responsivedesign.is/#](http://ami.responsivedesign.is/#)
+* The HTML code is run and tested at:
+..* [https://validator.w3.org/#validate_by_input](https://validator.w3.org/#validate_by_input)
+* The CSS code is run and tested at:
+..* [https://jigsaw.w3.org/css-validator/#validate_by_input](https://jigsaw.w3.org/css-validator/#validate_by_input)
+* The JavaScript is run and tested at:
+..* [https://jshint.com/](https://jshint.com/)
+
+## Deployment
+The hosting platform for this project is GitHub and can be run directly here on github.
+[https://abdullahalharun-code.github.io/Interactive-frontend-development/](https://abdullahalharun-code.github.io/Interactive-frontend-development/)
+
+## Credits
+Media
+* The photos used in this site were obtained from:
+..* [https://imgbb.com/](https://imgbb.com/)
+Acknowledgements
+* Inspiration for this project was obtained from:
+..* [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
+
 ## Its fun to play it!
