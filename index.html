@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Tic Tak Toe Game</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <h2>TIC TAC TOE <img class="info-button" data-toggle="modal" data-target="#info" src="images/info.png"></h2>
+      <hr>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12 col-xs-12">
+               <div onclick="selectSinglePlayer()" class="col-md-3 col-xs-6 top-button top-button-active single_player">Single Player</div>
+               <div onclick="selectTwoPlayer()" class="col-md-3 col-xs-6 top-button double_player">Two Player</div>
+               <div onclick="reset()" class="col-md-3 col-xs-6 top-button reset">Reset</div>
+               <div onclick="mute()" class="col-md-3 col-xs-6 top-button mute">Mute</div>
+            </div>
+            <div class="clearfix"></div>
+            <center>
+               <div class="slot-area">
+                  <button onclick="selectSlot(1)" class="slot slot_1"></button>
+                  <button onclick="selectSlot(2)" class="slot slot_2"></button>
+                  <button onclick="selectSlot(3)" class="slot slot_3"></button>     
+                  <button onclick="selectSlot(4)" class="slot slot_4"></button>
+                  <button onclick="selectSlot(5)" class="slot slot_5"></button>
+                  <button onclick="selectSlot(6)" class="slot slot_6"></button>
+                  <button onclick="selectSlot(7)" class="slot slot_7"></button>
+                  <button onclick="selectSlot(8)" class="slot slot_8"></button>
+                  <button onclick="selectSlot(9)" class="slot slot_9"></button>
+                  <div class="clearfix"></div>
+               </div>
+            </center>
+            <div class="clearfix"></div>
+            <center class="hidden-xs hidden-sm">
+               <div class="col-md-12">
+                  <div class="col-md-3 col-xs-12 bottom-button">Player(X)</div>
+                  <div class="col-md-3 col-xs-12 bottom-button player2">Computer(O)</div>
+                  <div class="col-md-3 col-xs-12 bottom-button">Tie</div>
+                  <div class="col-md-3 col-xs-12 bottom-button">Person</div>
+               </div>
+               <div class="col-md-12 botttom-result">
+                  <div class="col-md-3 col-xs-12 bottom-button-bottom player1_win">0</div>
+                  <div class="col-md-3 col-xs-12 bottom-button-bottom player2_win">0</div>
+                  <div class="col-md-3 col-xs-12 bottom-button-bottom match_tie">0</div>
+                  <div class="col-md-3 col-xs-12 bottom-button-bottom person_text">1P</div>
+               </div>
+            </center>
+            <center class="visible-xs visible-sm">
+               <div class="col-xs-6 bottom-button">Player(X)</div>
+               <div class="col-xs-6 bottom-button-bottom player1_win">0</div>
+               <div class="col-xs-6 bottom-button player2">Computer(O)</div>
+               <div class="col-xs-6 bottom-button-bottom player2_win">0</div>
+               <div class="col-xs-6 bottom-button">Tie</div>
+               <div class="col-xs-6 bottom-button-bottom match_tie">0</div>
+               <div class="col-xs-6 bottom-button">Person</div>
+               <div class="col-xs-6 bottom-button-bottom person_text">1P</div>
+            </center>
+            <div class="clearfix"></div>
+         </div>
+      </div>
+      <input type="hidden" class="btn btn-info btn-lg win_popup" data-toggle="modal" data-target="#win_popup">
+      <!-- Modal -->
+      <div class="modal fade" id="win_popup" role="dialog">
+         <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" onclick="closePopup()" class="close" data-dismiss="modal">&times;</button>
+                  <h1 class="modal-title text-center">Result</h1>
+               </div>
+               <div class="modal-body text-center">
+                  <h2 class="result_message"></h2>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" onclick="closePopup()" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal end-->
+      <!-- Modal --> 
+      <div class="modal fade" id="info" role="dialog">
+         <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h1 class="modal-title text-center">RULES FOR TIC-TAC-TOE</h1>
+               </div>
+               <div class="modal-body text-center">
+                  <ul class="info-text">
+                     <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+                     <li>You are X, your friend (or the computer in this case) is O.</li>
+                     <li>The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</li>
+                     <li>When all 9 squares are full, the game is over.If no player has 3 marks in a row, the game ends in a tie.</li>
+                  </ul>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal end-->
+      <audio id="myAudio" autoplay>
+         <source src="assets/music.mp3" type="audio/mp3">
+      </audio>
+      <hr>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="js/main.js"></script>
+   </body>
+</html>
