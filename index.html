@@ -8,17 +8,22 @@
       <link rel="stylesheet" href="css/style.css">
    </head>
    <body>
+      <!-- Game header-->
       <h2>TIC TAC TOE <img class="info-button" data-toggle="modal" data-target="#info" src="images/info.png"></h2>
       <hr>
       <div class="container-fluid">
          <div class="row">
+            <!-- This section top button area, where user can contro player mode, reset and audio-->
             <div class="col-md-12 col-xs-12">
                <div onclick="selectSinglePlayer()" class="col-md-3 col-xs-6 top-button top-button-active single_player">Single Player</div>
                <div onclick="selectTwoPlayer()" class="col-md-3 col-xs-6 top-button double_player">Two Player</div>
                <div onclick="reset()" class="col-md-3 col-xs-6 top-button reset">Reset</div>
                <div onclick="muteSound()" class="col-md-3 col-xs-6 top-button mute">Mute Sound</div>
             </div>
+            <!-- End controll area section-->
             <div class="clearfix"></div>
+
+            <!-- This section mainly play the game slot area, where user can play actual game and select their slot-->
             <center>
                <div class="slot-area">
                   <button onclick="selectSlot(1)" class="slot slot_1"></button>
@@ -33,7 +38,9 @@
                   <div class="clearfix"></div>
                </div>
             </center>
+            <!-- End slot area section-->
             <div class="clearfix"></div>
+            <!-- This section mainly view player mode, game result and how many person play the game.-->
             <center class="hidden-xs hidden-sm">
                <div class="col-md-12">
                   <div class="col-md-3 col-xs-12 bottom-button">Player(X)</div>
@@ -58,9 +65,12 @@
                <div class="col-xs-6 bottom-button">Person</div>
                <div class="col-xs-6 bottom-button-bottom person_text">1P</div>
             </center>
+            <!-- End result area section-->
             <div class="clearfix"></div>
          </div>
       </div>
+
+      <!-- This hidden input mainly click purpose, where game result popup show-->
       <input type="hidden" class="btn btn-info btn-lg win_popup" data-toggle="modal" data-target="#win_popup">
       <!-- Modal -->
       <div class="modal fade" id="win_popup" role="dialog">
@@ -81,7 +91,9 @@
          </div>
       </div>
       <!-- Modal end-->
+      <!-- End result popup modal-->
       <!-- Modal --> 
+      <!-- This modal popup for game info mean game rule popup.-->
       <div class="modal fade" id="info" role="dialog">
          <div class="modal-dialog">
             <!-- Modal content-->
@@ -105,10 +117,13 @@
          </div>
       </div>
       <!-- Modal end-->
+      <!-- This audio section for background music-->
       <audio id="myAudio" autoplay>
          <source src="assets/music.mp3" type="audio/mp3">
       </audio>
       <hr>
+      <!-- End audio section-->
+      <!-- link for javascript file and jquery file-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="js/main.js"></script>
