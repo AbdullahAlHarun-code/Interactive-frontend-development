@@ -7,7 +7,7 @@ Basically this game two players game, player 1 against a other player or compute
 ![alt text](https://i.ibb.co/wQhGBWc/demo.png "Demo")
 
 ## Technolodgy
-======
+
 * Html
 * Css
 * Bootstrap
@@ -15,7 +15,7 @@ Basically this game two players game, player 1 against a other player or compute
 * Jquery
 
 ## Rules
-======
+
 * The game is played on a grid that's 3 squares by 3 squares.
 * You are X, your friend (or the computer in this case) is O.
 * The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
@@ -24,7 +24,7 @@ Basically this game two players game, player 1 against a other player or compute
 
 
 ## WIN, LOSE & TIE
-======
+
 Before any player wins .
 
 * If player fulfills the winning condition then it wins the game.
