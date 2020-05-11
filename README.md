@@ -93,7 +93,7 @@ scheduling is very important stage for us.
 Before any player wins.
 
 * If the player fulfils the winning condition then it wins the game.
-* If any player fulfils the winning condition then it ties the game.
+* If any player does not fulfils the winning condition then it ties the game.
 * Win and Lose is indicated by numbers at the bottom area.
 
 
@@ -136,11 +136,11 @@ When the code is downloaded as a .zip it can be unzipped and runned by opening t
 
 ## Credits
 Media
-* The photos used in this site were obtained from:
-- [https://imgbb.com/](https://imgbb.com/)
+1. The photos used in this site were obtained from:
+..* [https://imgbb.com/](https://imgbb.com/)
 Acknowledgements
-* Inspiration for this project was obtained from:
-- [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
+1. Inspiration for this project was obtained from:
+..* [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
 
 
 ## Its fun to play it!
