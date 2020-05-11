@@ -76,9 +76,29 @@ facilitates the pace of the story. I demonstrate the action flow between inputs,
 
 ## Structure
 
-## Structure
+## Rules
+
+* The game is played on a grid that's 3 squares by 3 squares.
+* You are X, your friend (or the computer in this case) is O.
+* The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
+* When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
+* To win you must get 3 squares in a row on the big board
+
+
+## WIN, LOSE & TIE
+
+Before any player wins.
+
+* If the player fulfils the winning condition then it wins the game.
+* If any player fulfils the winning condition then it ties the game.
+* Win and Lose is indicated by numbers at the bottom area.
+
+
 ## Mockups
-## Surface
+
+I have used Figma Mockups to visualize images I can work from.
+* [Desktop Home](https://i.ibb.co/KFzfYgx/figma.png)  - [Tablet Home](https://i.ibb.co/KFzfYgx/figma.png) - [Mobile Home](https://i.ibb.co/KFzfYgx/figma.png)
+
 ## Technologies
 * Html
 * Css
@@ -118,36 +138,6 @@ Media
 Acknowledgements
 * Inspiration for this project was obtained from:
 - [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
-
-
-
-## Rules
-
-* The game is played on a grid that's 3 squares by 3 squares.
-* You are X, your friend (or the computer in this case) is O.
-* The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
-* When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
-* To win you must get 3 squares in a row on the big board
-
-
-## WIN, LOSE & TIE
-
-Before any player wins.
-
-* If the player fulfils the winning condition then it wins the game.
-* If any player fulfils the winning condition then it ties the game.
-* Win and Lose is indicated by numbers at the bottom area.
-
-
-## Mockups
-
-I have used Figma Mockups to visualize images I can work from.
-* [Desktop Home](https://i.ibb.co/KFzfYgx/figma.png)  - [Tablet Home](https://i.ibb.co/KFzfYgx/figma.png) - [Mobile Home](https://i.ibb.co/KFzfYgx/figma.png)
-
-
-
-
-
 
 
 ## Its fun to play it!
