@@ -137,10 +137,10 @@ When the code is downloaded as a .zip it can be unzipped and runned by opening t
 ## Credits
 Media
 1. The photos used in this site were obtained from:
-..* [https://imgbb.com/](https://imgbb.com/)
+* [https://imgbb.com/](https://imgbb.com/)
 Acknowledgements
 1. Inspiration for this project was obtained from:
-..* [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
+* [https://www.exploratorium.edu/brain_explorer/tictactoe.html](https://www.exploratorium.edu/brain_explorer/tictactoe.html)
 
 
 ## Its fun to play it!
