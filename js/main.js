@@ -121,7 +121,7 @@ function selectSinglePlayer() {
  */
 function selectTwoPlayer() {  
 
-    resetPlayerAttribute(0,'Player2(O)', '2P');
+    resetPlayerAttribute(0,'Player 2(O)', '2P');
 }
 
 /*
