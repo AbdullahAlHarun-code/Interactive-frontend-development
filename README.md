@@ -40,20 +40,20 @@ Simplicity is often referred to as one of the fundamental principles of UX desig
 * And I am prompted with a move
 * When I select a move
 * Then it will place my marker (X) on the board
-
+---
 * Given I have made a move
 * When the second player is prompted for a move
 * Then she will select a move
 * And her marker (O) will be placed on the board
-
+---
 * Given a player makes a move
 * And the move results in three consecutive spaces
 * Then the game is over
-
+---
 * Given a player makes a move
 * And the move is the last empty spot on the board
 * Then the game is over
-
+---
 * Each game if the player 1 play first and player 2 was second, next game player 2 will be play first and player 1 will be second
 
 ## Strategy
@@ -75,6 +75,9 @@ facilitates the pace of the story. I demonstrate the action flow between inputs,
 
 
 ## Structure
+The project planning stage requires several inputs, including conceptual proposals, project schedules. The development of this
+project is not successfully done without proper planning and scheduling. Project planning and
+scheduling is very important stage for us.
 
 ## Rules
 
