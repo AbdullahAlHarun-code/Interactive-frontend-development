@@ -18,20 +18,20 @@ Simplicity is often referred to as one of the fundamental principles of UX desig
 * And I am prompted with a move
 * When I select a move
 * Then it will place my marker (X) on the board
-===
+---
 
 * Given I have made a move
 * When my turn is over
 * Then the computer will have a random move placed on the board with its marker (O)
-===
+---
 * Given a player makes a move
 * And the move results in three consecutive spaces
 * Then the game is over
-===
+---
 * Given a player makes a move
 * And the move is the last empty spot on the board
 * Then the game is over
-===
+---
 * Each game if the player 1 play first and computer was second, next game computer will be play first and player will be second
 
 #### Playing a Two Player Game
